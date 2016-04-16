@@ -504,10 +504,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
 
     $scope.openGroup = function () {
       ContactsSelectService.selectContacts({action: 'new_group'}).then(function (userIDs) {
-
-        if (userIDs.length == 1) {
-          $scope.dialogSelect(AppUsersManager.getUserString(userIDs[0]));
-        } else if (userIDs.length > 1) {
+        if (userIDs.length > 0) {
           var scope = $rootScope.$new();
           scope.userIDs = userIDs;
 
